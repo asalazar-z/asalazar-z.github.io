@@ -1,0 +1,520 @@
+/* =========================================================
+   1. TEMA OSCURO BASE (Igual al diseño anterior)
+   ========================================================= */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #141414;
+  --md-default-fg-color: #e6e6e6;
+}
+
+/* Ocultar buscador, botón hamburguesa y título duplicado */
+.md-search, label[for="__drawer"] {
+  display: none !important;
+}
+
+/* Ocultar primer h1 solo en el Home donde ya usamos .portfolio-title */
+.md-content__inner:has(.hero-banner) .md-typeset h1:first-child,
+.md-typeset:has(.hero-banner) h1:first-child {
+  display: none !important;
+}
+
+/* =========================================================
+   2. BARRA SUPERIOR DERECHA CON DESPLEGABLES (C, Python, Data)
+   ========================================================= */
+.custom-topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.4rem 0 0.8rem 0;
+  border-bottom: 1px solid #262626;
+  margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  position: relative;
+  z-index: 50;
+}
+
+.topbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.nav-item, .dropbtn {
+  background: none;
+  border: none;
+  color: #d4d4d4 !important;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  text-decoration: none !important;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-item:hover, .dropdown:hover .dropbtn {
+  color: #4fd1c5 !important;
+  border-bottom: 2px solid #4fd1c5;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #1a1a1a;
+  border: 1px solid #303030;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  margin-top: 2px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Desplegables simples (C y Python) */
+.simple-dropdown {
+  min-width: 210px;
+  padding: 0.5rem 0;
+}
+
+.simple-dropdown a {
+  display: block;
+  padding: 0.55rem 1rem;
+  color: #cccccc !important;
+  font-size: 0.8rem;
+  text-decoration: none !important;
+}
+
+.simple-dropdown a:hover {
+  background-color: #252525;
+  color: #4fd1c5 !important;
+}
+
+/* Mega-menú estilo Capterra para Data */
+.dropdown:hover .mega-dropdown {
+  display: flex;
+  width: 520px;
+  min-height: 210px;
+}
+
+.mega-col-left {
+  width: 46%;
+  background-color: #151515;
+  border-right: 1px solid #2b2b2b;
+  padding: 0.6rem 0;
+  border-radius: 8px 0 0 8px;
+}
+
+.mega-category {
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+  color: #b0b0b0;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.mega-category:hover, .mega-category.active {
+  background-color: #222222;
+  color: #4fd1c5;
+  border-left: 3px solid #4fd1c5;
+  font-weight: 600;
+}
+
+.mega-col-right {
+  width: 54%;
+  padding: 1rem 1.2rem;
+}
+
+.mega-panel {
+  display: none;
+}
+
+.mega-panel.active {
+  display: block;
+}
+
+.mega-panel h4 {
+  margin: 0 0 0.75rem 0 !important;
+  font-size: 0.9rem !important;
+  color: #ffffff !important;
+  border-bottom: 1px solid #2b2b2b;
+  padding-bottom: 0.4rem;
+}
+
+.mega-panel a {
+  display: block;
+  padding: 0.45rem 0;
+  font-size: 0.8rem;
+  color: #b8b8b8 !important;
+  text-decoration: none !important;
+}
+
+.mega-panel a:hover {
+  color: #4fd1c5 !important;
+}
+
+/* =========================================================
+   3. PORTADA COMPACTA Y TÍTULOS
+   ========================================================= */
+.hero-banner {
+  position: relative;
+  margin-top: 0.5rem;
+  margin-bottom: 2.6rem;
+}
+
+.banner-img {
+  width: 100%;
+  height: 145px !important;
+  max-height: 145px !important;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+  filter: brightness(0.82) contrast(1.08);
+}
+
+.avatar-box {
+  position: absolute;
+  bottom: -24px;
+  left: 22px;
+  width: 56px;
+  height: 56px;
+  background-color: #181818;
+  border: 1px solid #333;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.portfolio-title {
+  display: block !important;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.85rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
+  color: #ffffff !important;
+  margin-bottom: 0.6rem !important;
+}
+
+.portfolio-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: #a3a3a3;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* =========================================================
+   4. SECCIÓN ABOUT ME EN 2 COLUMNAS (Restaurada)
+   ========================================================= */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  align-items: stretch;
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #2a2a2a;
+}
+
+.metrics-bar {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: #4fd1c5;
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.callout-box {
+  background-color: #1c1c1c;
+  border: 1px solid #2e2e2e;
+  border-radius: 6px;
+  padding: 1.4rem;
+}
+
+.callout-box h3 {
+  font-family: 'JetBrains Mono', monospace;
+  color: #4fd1c5 !important;
+  margin-top: 0 !important;
+  font-size: 1.05rem;
+}
+
+.callout-box p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: #cccccc;
+  line-height: 1.65;
+}
+
+.btn-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: #4fd1c5 !important;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* =========================================================
+   5. CUADRITOS INTERACTIVOS DE PROYECTOS DESTACADOS (Restaurados)
+   ========================================================= */
+.section-heading {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem !important;
+  letter-spacing: 0.05em;
+  color: #ffffff !important;
+  border-bottom: 1px solid #2a2a2a;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.2rem !important;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+.project-card {
+  background-color: #1a1a1a;
+  border: 1px solid #2c2c2c;
+  border-radius: 8px;
+  padding: 1.3rem;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: #4fd1c5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: #4fd1c5;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.06em;
+}
+
+.project-card h3 {
+  margin: 0 0 0.6rem 0 !important;
+  color: #ffffff !important;
+  font-size: 1.1rem;
+}
+
+.project-card p {
+  font-size: 0.85rem;
+  color: #a3a3a3;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.card-footer {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: #e6e6e6;
+}
+
+.project-card:hover .card-footer {
+  color: #4fd1c5;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Permitir que los menús desplegables salgan por debajo de la barra superior */
+.md-header,
+.md-header__inner {
+  overflow: visible !important;
+}
+
+/* Ocultar selector de tema por completo */
+[data-md-component="palette"] {
+  display: none !important;
+}
+
+/* Integración dentro de la barra superior de MkDocs */
+.custom-topbar.in-header {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: none !important;
+  margin: 0 0 0 auto !important;
+  padding: 0 !important;
+  height: 100%;
+}
+
+.custom-topbar.in-header .topbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: nowrap;
+}
+
+.custom-topbar.in-header .nav-item,
+.custom-topbar.in-header .dropbtn {
+  font-size: 0.78rem;
+  padding: 0.35rem 0.45rem;
+  white-space: nowrap;
+}
+
+/* Ajuste del banner superior para que no quede pegado al header */
+.hero-banner {
+  position: relative;
+  margin-top: 1.2rem;
+  margin-bottom: 2.6rem;
+}
+
+/* En pantallas pequeñas se oculta la barra extra para no saturar el móvil */
+@media (max-width: 900px) {
+  .custom-topbar.in-header {
+    display: none !important;
+  }
+}
+
+/* Ocultar barra lateral izquierda en todas las páginas, manteniendo Table of Contents derecho */
+.md-sidebar--primary {
+  display: none !important;
+}
+
+/* =========================================================
+   6. COHERENCIA VISUAL EN PÁGINAS DE PROYECTOS
+   ========================================================= */
+
+/* Título principal del proyecto con estética de portada */
+.md-typeset h1 {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 1.9rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem !important;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* Subtítulos (h2, h3) coherentes con la estética técnica */
+.md-typeset h2 {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 1.2rem !important;
+  color: #ffffff !important;
+  letter-spacing: 0.03em;
+  margin-top: 2rem !important;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid #242424;
+}
+
+.md-typeset h3 {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 1rem !important;
+  color: #4fd1c5 !important;
+}
+
+/* Botón primario (ej. View on GitHub) con acento teal del portafolio */
+.md-typeset .md-button--primary {
+  background-color: #1a1a1a !important;
+  color: #4fd1c5 !important;
+  border: 1px solid #4fd1c5 !important;
+  border-radius: 6px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.82rem !important;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.md-typeset .md-button--primary:hover {
+  background-color: #4fd1c5 !important;
+  color: #141414 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(79, 209, 197, 0.22);
+}
+
+/* Pestañas (Swap, Push, Rotate...) con el mismo color de acento */
+.md-typeset .tabbed-labels > label {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.82rem !important;
+}
+
+.md-typeset .tabbed-set > input:checked + label {
+  color: #4fd1c5 !important;
+  border-color: #4fd1c5 !important;
+}
+
+/* Tarjetas / contenedores de detalle dentro de proyectos */
+.project-detail-card {
+  background-color: #1a1a1a;
+  border: 1px solid #2c2c2c;
+  border-radius: 8px;
+  padding: 1.2rem 1.4rem;
+  margin: 1.2rem 0;
+}
+
+/* Imágenes y GIFs de proyectos enmarcados como tarjetas */
+.md-typeset img[src*=".gif"],
+.md-typeset img[src*=".png"],
+.md-typeset img[src*=".jpg"] {
+  border-radius: 8px;
+  border: 1px solid #2c2c2c;
+  background-color: #1a1a1a;
+}
+
+/* Tablas con bordes y cabecera oscuros coherentes */
+.md-typeset table:not([class]) {
+  background-color: #1a1a1a;
+  border: 1px solid #2c2c2c;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.85rem;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: #151515 !important;
+  color: #4fd1c5 !important;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+}
+
+/* Ocultar el título "Home" generado automáticamente en la página principal */
+.md-content__inner:has(.about-grid) h1:first-of-type {
+  display: none !important;
+}
+
+/* Reducir el espacio superior entre la barra de navegación y el contenido en el Home */
+.md-main__inner:has(.about-grid) {
+  margin-top: 0.4rem !important;
+}
+
+.md-content__inner:has(.about-grid) {
+  padding-top: 0.4rem !important;
+}
+
+.about-grid {
+  margin-top: 0 !important;
+}
