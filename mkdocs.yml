@@ -1,0 +1,71 @@
+site_name: Andrea Salazar | Data & Development
+site_url: https://asalazar-z.github.io
+
+theme:
+  name: material
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - scheme: slate
+      primary: black
+      accent: teal
+    - scheme: default
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Modo oscuro
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - content.code.copy
+
+# Al dejar plugins vacío (sin - search), eliminas el buscador por completo
+plugins: []
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/topbar.js
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.highlight
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Home: index.md
+  - About me: about.md
+  - C:
+      - projects/42-school/c/index.md
+      - libft: projects/42-school/c/libft.md
+      - push_swap: projects/42-school/c/push_swap.md
+      - get_next_line: projects/42-school/c/get_next_line.md
+      - ft_printf: projects/42-school/c/ft_printf.md
+  - Python:
+      - projects/42-school/python/index.md
+      - A-Maze-ing: projects/42-school/python/a-maze-ing.md
+      - Python modules: projects/42-school/python/python-modules.md
+  - Data:
+      - projects/data-engineering/index.md
+      - Data Engineering:
+          - Data quality control: projects/data-engineering/data-quality-control.md
+      - Data Science:
+          - Overview: projects/data-engineering/index.md
+      - BI:
+          - Overview: projects/data-engineering/index.md
